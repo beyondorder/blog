@@ -7,6 +7,7 @@ import {Suspense} from "react";
 import Loading from "@/app/loading";
 import Modal from "@/components/modal/modal";
 import Head from "next/head";
+import Login from "@/app/login/page";
 
 const inter = Inter({ subsets: ['latin'] })
 

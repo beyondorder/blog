@@ -1,7 +1,9 @@
+
 import React from 'react';
 import Link from "next/link";
 import {MENU} from "@/lib/data";
 import {BsGithub, BsInstagram, BsPencil, BsTwitter, BsYoutube} from "react-icons/bs";
+import LoginBox from "@/components/navbar/login-box";
 
 const GITHUB_URL = process.env.GITHUB_URL;
 const Navbar = () => {
@@ -17,7 +19,7 @@ const Navbar = () => {
 				bg-gray-950
 				h-44
 				">
-			<div className="absolute right-0 bottom-5 text-white/80 flex text-2xl gap-3">
+			<div className="absolute left-0 bottom-5 text-white/80 flex text-2xl gap-3">
 				<Link href={`${GITHUB_URL}`} className="transition hover:scale-105 hover:text-yellow-400"><BsGithub /></Link>
 				<Link href={"/"} className="transition hover:scale-105 hover:text-yellow-400"><BsTwitter /></Link>
 				<Link href={"/"} className="transition hover:scale-105 hover:text-yellow-400"><BsInstagram /></Link>
@@ -38,6 +40,7 @@ const Navbar = () => {
 					))
 				}
 			</div>
+			<LoginBox />
 		</div>
 	);
 };

@@ -2,11 +2,11 @@
 
 import React, {useEffect, useState} from 'react';
 import {BsCalendar, BsPencil} from "react-icons/bs";
-import {useRouter} from "next/navigation";
 import {PostType} from "@/lib/type";
 import axios from 'axios';
 import Link from "next/link";
 import {BiComment, BiHeart} from "react-icons/bi";
+import {useCurrentUserStore} from "@/lib/state";
 
 const Blog = () => {
 
@@ -18,10 +18,7 @@ const Blog = () => {
 			.catch(error  => console.log(error))
 	}, []);
 
-	const router = useRouter();
-	const [needPassword, setNeedPassword] = useState(false);
-	const [password, setPassword] = useState("");
-
+	const { email } = useCurrentUserStore();
 	return (
 		<div>
 
@@ -50,44 +47,20 @@ const Blog = () => {
 				))
 			}
 
+			{
+				email === "ryan@korea.com" &&
+					<div className="w-screen flex justify-end">
+							<div className="text-3xl rounded-full bg-white p-2 hover:text-yellow-500 hover:scale-105 w-fit ">
+									<Link href={"/writing"}>
+											<BsPencil />
+									</Link>
+							</div>
+					</div>
 
-			<div
-				className="
-					z-10 fixed right-10 bottom-10 flex mt-5 text-2xl gap-3
-					bg-neutral-400/30 p-5 rounded-full hover:bg-white group
-					hover:cursor-pointer
-				"
-			>
-				<div className="transition group-hover:scale-150 group-hover:text-yellow-400"
-						 onClick={()=>setNeedPassword(true)}>
-					<BsPencil />
-				</div>
-				{
-					needPassword && (
-						<>
-							<input
-								value={password}
-								onChange={(e)=>{
-									setPassword(e.target.value);
-								}} />
-							<button
-							className=""
-							onClick={()=>{
-								if (password === 'ryan0625'){
-									console.log("here?")
-									router.push("/writing")
-								}else{
-									console.log("wrong password")
-									setNeedPassword(false);
-									setPassword("")
-								}
-							}}>
-								확인
-							</button>
-						</>
-					)
-				}
-			</div>
+
+			}
+
+
 		</div>
 	);
 };

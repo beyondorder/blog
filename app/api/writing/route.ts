@@ -15,6 +15,10 @@ export async function POST(request: Request){
 }
 
 export async function GET(request: Request){
-	const posts = await prisma.post.findMany();
-	return NextResponse.json(posts);
+	try {
+		const posts = await prisma.post.findMany();
+		return NextResponse.json(posts);
+	}catch (e){
+		console.log(e)
+	}
 }
