@@ -15,8 +15,8 @@ export async function POST(request: Request){
 export async  function GET(request: Request){
 	const password = new URL(request.url).searchParams.get("password");
 	if (!password) return;
-	const requestHashedPassword = bcrypt.hash(password, 12);
-	const user = await prisma.user.findUnique({
+	const requestHashedPassword = await bcrypt.hash(password, 12);
+	const user = await prisma.user.findFirst({
 		where:{
 			hashedPassword: requestHashedPassword
 		}

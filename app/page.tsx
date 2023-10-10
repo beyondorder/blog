@@ -6,8 +6,10 @@ import {useEffect} from "react";
 
 const Home = () => {
   const router = useRouter();
-  router.push('/About');
-  return <></>
+  useEffect(() => {
+    router.push('/About');
+  } ,[])
+  return (<>  </>)
 }
 
 export default Home;

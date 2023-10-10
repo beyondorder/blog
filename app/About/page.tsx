@@ -21,7 +21,7 @@ type PostProps = {
 const About = () => {
 	const [posts, setPosts] = useState<PostProps[]>([]);
 	useEffect(() => {
-		axios.get('api/writing')
+		axios.get('/api/writing')
 			.then(res  => setPosts(res?.data))
 			.catch(error  => console.log(error))
 	}, []);
@@ -57,7 +57,7 @@ const About = () => {
 						posts.slice(0,5).map(post => (
 							<React.Fragment key={post.title}>
 								<div className="flex items-center gap-2">
-									<Link href={`/writing/${post.id}}`} >
+									<Link href={`/writing/${post.id}`} >
 										<div className="mr-3 text-neutral-400">- {post.title}</div>
 									</Link>
 									<div className="flex items-center">
@@ -95,11 +95,11 @@ const About = () => {
 									</div>
 									<div className="flex items-center">
 										<div className="mr text-lg"><BiComment /></div>
-										<div>{post.like}</div>
+										<div>{post.comments?.length}</div>
 									</div>
 									<div className="flex items-center">
 										<div className="mr text-lg"><BiHeart /></div>
-										<div>{post?.comments?.length}</div>
+										<div>{post.like}</div>
 									</div>
 								</div>
 							</React.Fragment>

@@ -13,6 +13,7 @@ datasource db {
 model Post {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
+  subTitle  String?
   content   String
   like      Int      @default(0)
   createdAt DateTime @default(now())

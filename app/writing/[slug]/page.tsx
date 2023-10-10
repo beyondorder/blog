@@ -4,15 +4,10 @@ import React, {useEffect, useState} from 'react';
 import MDEditor, {title} from "@uiw/react-md-editor";
 import axios from 'axios';
 import {BsCalendar} from "react-icons/bs";
+import {BiComment, BiHeart} from "react-icons/bi";
+import {PostType} from "@/lib/type";
 
-type PostType = {
-	title: string;
-	content: string;
-	like: number;
-	comments: any[]
-	createdAt: Date;
-	updatedAt: Date;
-}
+
 const Page= ({params}:{params:{slug:string}}) => {
 
 	const [post, setPost] = useState<PostType>()
@@ -39,6 +34,7 @@ const Page= ({params}:{params:{slug:string}}) => {
 				<div className="p-10">
 					<MDEditor.Markdown source={post?.content} style={{padding:10, whiteSpace: 'pre-wrap', backgroundColor:"rgb(18,18,18)", color:"white"}}/>
 				</div>
+
 			</div>
 		</div>
 	);
