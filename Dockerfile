@@ -13,7 +13,7 @@ RUN npm install
 # Copy the rest of your application code to the container
 COPY . .
 RUN npm install prisma
-RUN prisma generate
+RUN npx prisma generate
 RUN npm install axios
 # Build your Next.js application for production
 RUN npm run build
