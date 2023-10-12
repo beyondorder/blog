@@ -3,6 +3,7 @@ import React, {useCallback} from 'react';
 import Link from "next/link";
 import {useCurrentUserStore} from "@/lib/state";
 import {useRouter} from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
 
 const LoginBox = () => {
 	const router = useRouter();
@@ -10,6 +11,9 @@ const LoginBox = () => {
 
 	const handleLogout = useCallback(()=>{
 		setEmail(null);
+		toast.success("로그아웃 되었습니다.",{
+			position: "top-center"
+		})
 		router.push("/")
 	},[])
 

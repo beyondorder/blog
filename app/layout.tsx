@@ -3,11 +3,12 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
-import {Suspense} from "react";
+import React, {Suspense} from "react";
 import Loading from "@/app/loading";
 import Modal from "@/components/modal/modal";
 import Head from "next/head";
 import Login from "@/app/login/page";
+import {Toaster} from "react-hot-toast";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
+        <div><Toaster/></div>
           <Navbar />
           <div className="relative top-44">
             <Suspense fallback={<Loading />}>

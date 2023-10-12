@@ -7,6 +7,7 @@ import {BsGithub, BsGoogle} from "react-icons/bs";
 import {create} from "zustand";
 import {useCurrentUserStore} from "@/lib/state";
 import {useRouter} from "next/navigation";
+import toast from "react-hot-toast";
 
 interface IFormInput {
 	email: string;
@@ -17,7 +18,7 @@ const Login= () => {
 	const router = useRouter();
 	const email = useCurrentUserStore(state => state.email);
 	const setEmail = useCurrentUserStore(state => state.setEmail);
-	console.log(email);
+
 	const {
 		register,
 		handleSubmit,
@@ -28,16 +29,19 @@ const Login= () => {
 		axios.post('/api/auth/login', data)
 			.then(res=> {
 				setEmail(res.data.email);
+				toast.success("로그인되었습니다.",{
+					position: "top-center"
+				})
 				router.push("/");
 			})
 			.catch(error=> {
 				console.log(error.response.status);
 				switch (error.response.status) {
 					case 404:
-						alert("User Not Found");
+						toast.error("존재하지 않는 이메일입니다.");
 						return;
 					case 401:
-						alert("Password Not Matched");
+						toast.error("비밀번호가 틀렸습니다.");
 						return;
 					default:
 						alert("Login Failed")
@@ -72,7 +76,7 @@ const Login= () => {
 											className="border border-gray-300 rounded-md p-1"
 							/>
 
-							{errors.password && <span>This field is required</span>}
+							{errors.password && (toast.error("This field is required"))}
 						</div>
 						<button type="submit" className="bg-yellow-500 rounded-md p-1 mt-2 hover:text-white">
 							Login
