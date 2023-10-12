@@ -6,6 +6,8 @@ import axios from 'axios';
 import {BsCalendar} from "react-icons/bs";
 import {BiComment, BiHeart} from "react-icons/bi";
 import {PostType} from "@/lib/type";
+import {useCurrentUserStore} from "@/lib/state";
+import DeletePost from "@/components/writing/delete-post";
 
 
 const Page= ({params}:{params:{slug:string}}) => {
@@ -18,7 +20,7 @@ const Page= ({params}:{params:{slug:string}}) => {
 			.catch(error  => console.log(error))
 	}, [params]);
 
-
+	const { email } = useCurrentUserStore();
 	return (
 		<div className="flex flex-col justify-center items-center">
 			<div className={"w-3/4 text-white"}>
@@ -34,7 +36,9 @@ const Page= ({params}:{params:{slug:string}}) => {
 				<div className="p-10">
 					<MDEditor.Markdown source={post?.content} style={{padding:10, whiteSpace: 'pre-wrap', backgroundColor:"rgb(18,18,18)", color:"white"}}/>
 				</div>
-
+				<div>
+					<DeletePost email={email} id={post?.id}/>
+				</div>
 			</div>
 		</div>
 	);

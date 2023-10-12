@@ -8,3 +8,4 @@ export const useCurrentUserStore = create<IAuth>((set)=> ({
 	email: null,
 	setEmail: (input: string | null) => set({email: input})
 }))
+

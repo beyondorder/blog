@@ -7,6 +7,7 @@ import axios from 'axios';
 import Link from "next/link";
 import {BiComment, BiHeart} from "react-icons/bi";
 import {useCurrentUserStore} from "@/lib/state";
+import Pencil from "@/components/writing/pencil";
 
 const Blog = () => {
 
@@ -46,21 +47,7 @@ const Blog = () => {
 					</React.Fragment>
 				))
 			}
-
-			{
-				email === "ryan@korea.com" &&
-					<div className="w-screen flex justify-end">
-							<div className="text-3xl rounded-full bg-white p-2 hover:text-yellow-500 hover:scale-105 w-fit ">
-									<Link href={"/writing"}>
-											<BsPencil />
-									</Link>
-							</div>
-					</div>
-
-
-			}
-
-
+		<Pencil />
 		</div>
 	);
 };
