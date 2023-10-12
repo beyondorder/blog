@@ -8,7 +8,7 @@ const Home = () => {
   const router = useRouter();
   useEffect(() => {
     router.push('/About');
-  } ,[])
+  } ,[router])
   return (<>  </>)
 }
 

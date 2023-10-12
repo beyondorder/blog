@@ -15,7 +15,7 @@ const LoginBox = () => {
 			position: "top-center"
 		})
 		router.push("/")
-	},[])
+	},[setEmail, router])
 
 	return (
 		<div className="absolute right-3 bottom-3 bg-neutral-800 px-2 py-1 rounded-full flex gap-2 text-sm">

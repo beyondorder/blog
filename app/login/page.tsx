@@ -47,7 +47,7 @@ const Login= () => {
 						alert("Login Failed")
 				}
 			})
-	},[handleSubmit]);
+	},[handleSubmit, router,  setEmail]);
 
 	return (
 		<div className="flex items-center justify-center min-h-[500px] transition">
