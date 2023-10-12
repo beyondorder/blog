@@ -24,8 +24,9 @@ const Pencil= () => {
 	return (
 		<div>
 			{
-          <div className="w-screen flex justify-end">
-              <div className="text-3xl rounded-full bg-white p-2 hover:text-yellow-500 hover:scale-105 w-fit ">
+          <div className="m-2 flex justify-end">
+              <div className=" rounded-full bg-white p-2 hover:text-yellow-500 hover:scale-105 w-fit
+               hover:cursor-pointer">
                   <div onClick={handleWriting}>
                       <BsPencil />
                   </div>

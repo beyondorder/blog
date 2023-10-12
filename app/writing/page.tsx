@@ -5,6 +5,7 @@ import axios from 'axios';
 import React, {useRef, useState} from 'react';
 import 'react-quill/dist/quill.snow.css';
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 
 const Page = () => {
@@ -13,7 +14,7 @@ const Page = () => {
 
 	const savePost = async () => {
 		axios.post('api/writing', {title: title, content: value})
-			.then(res => alert(title + "이 저장되었습니다."))
+			.then(res => toast.success(title + "이 저장되었습니다."))
 			.catch(error => console.log(error))
 	}
 

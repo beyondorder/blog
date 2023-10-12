@@ -15,9 +15,6 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'MOON WALKING DEV | BLOG',
   description: 'IT, PROGRAMMING, CODING BLOG',
-  icons:{
-    icon: '/rocket.png'
-  }
 }
 
 export default function RootLayout({
@@ -30,7 +27,7 @@ export default function RootLayout({
       <body className={`${inter.className}  `}>
         <div><Toaster/></div>
           <Navbar />
-          <div className="relative top-44">
+          <div className="w-screen relative top-44">
             <Suspense fallback={<Loading />}>
               {children}
             </Suspense>

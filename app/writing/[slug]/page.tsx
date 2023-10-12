@@ -13,7 +13,6 @@ import DeletePost from "@/components/writing/delete-post";
 const Page= ({params}:{params:{slug:string}}) => {
 
 	const [post, setPost] = useState<PostType>()
-
 	useEffect(() => {
 		axios.get('/api/writing/detail',{params: {id: params.slug}})
 			.then(res  => setPost(res?.data))
@@ -37,7 +36,7 @@ const Page= ({params}:{params:{slug:string}}) => {
 					<MDEditor.Markdown source={post?.content} style={{padding:10, whiteSpace: 'pre-wrap', backgroundColor:"rgb(18,18,18)", color:"white"}}/>
 				</div>
 				<div>
-					<DeletePost email={email} id={post?.id}/>
+					<DeletePost id={post?.id}/>
 				</div>
 			</div>
 		</div>
