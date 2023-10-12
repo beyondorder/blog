@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className}  `}>
         <div><Toaster/></div>
           <Navbar />
           <div className="relative top-44">

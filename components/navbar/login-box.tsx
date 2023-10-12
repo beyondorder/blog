@@ -18,7 +18,7 @@ const LoginBox = () => {
 	},[setEmail, router])
 
 	return (
-		<div className="absolute right-3 bottom-3 bg-neutral-800 px-2 py-1 rounded-full flex gap-2 text-sm">
+		<div className="overflow-x-hidden bg-neutral-800 px-2 py-1 rounded-full flex gap-2 text-sm">
 			{
 				email && (
 					<div className="right-5 bottom-5 text-white/80">
