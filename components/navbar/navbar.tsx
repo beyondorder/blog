@@ -18,6 +18,7 @@ const Navbar = () => {
 				flex flex-col items-center
 				bg-gray-950
 				h-44
+				w-screen
 				">
 
 			<div className="flex font-extrabold text-2xl text-white flex-[2.5] items-center justify-center content-center">
@@ -25,10 +26,10 @@ const Navbar = () => {
 			</div>
 			<div className="flex justify-between gap-10 w-full p-5">
 				<div className="text-white/80 flex text-2xl gap-3 overflow-x-hidden">
-					<Link href={`${GITHUB_URL}`} className="transition hover:scale-105 hover:text-yellow-400"><BsGithub /></Link>
-					<Link href={"/"} className="transition hover:scale-105 hover:text-yellow-400"><BsTwitter /></Link>
-					<Link href={"/"} className="transition hover:scale-105 hover:text-yellow-400"><BsInstagram /></Link>
-					<Link href={"/"} className="transition hover:scale-105 hover:text-yellow-400"><BsYoutube /></Link>
+					<a href={`${GITHUB_URL}`} className="transition hover:scale-105 hover:text-yellow-400"><BsGithub /></a>
+					<a href={"/"} className="transition hover:scale-105 hover:text-yellow-400"><BsTwitter /></a>
+					<a href={"/"} className="transition hover:scale-105 hover:text-yellow-400"><BsInstagram /></a>
+					<a href={"/"} className="transition hover:scale-105 hover:text-yellow-400"><BsYoutube /></a>
 				</div>
 				<div className="flex gap-3">
 					{

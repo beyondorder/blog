@@ -5,7 +5,7 @@ import {BsGithub, BsInstagram, BsPencil, BsTwitter, BsYoutube} from "react-icons
 
 const Footer = () => {
 	return (
-		<div className=" w-full border-t-2 border-neutral-200/30 pt-5 bg-gray-950 text-neutral-400 flex justify-center">
+		<div className=" w-screen border-t-2 border-neutral-200/30 pt-5 bg-gray-950 text-neutral-400 flex justify-center">
 			<div className="flex flex-col w-1/2 sm:w-[80%]">
 				<div className="border-b-[1px] border-yellow-500 flex justify-between">
 					<div className="flex flex-col p-4 h-30 min-h-full text-center w-40">

@@ -1,6 +1,6 @@
 'use client'
 
-import MDEditor from '@uiw/react-md-editor';
+import MDEditor, {commands, getCommands, getExtraCommands} from '@uiw/react-md-editor';
 import axios from 'axios';
 import React, {useRef, useState} from 'react';
 import 'react-quill/dist/quill.snow.css';
@@ -31,7 +31,10 @@ const Page = () => {
 
 				<MDEditor
 					value={value}
+					commands={ [...getCommands()] }
+					extraCommands={ [...getExtraCommands()]}
 					style={{
+						fontSize:"20px",
 						backgroundColor:"rgb(255,255,255)",
 						borderRadius: "20px",
 						padding: "10px"
