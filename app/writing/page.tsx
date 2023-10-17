@@ -21,19 +21,23 @@ const Page = () => {
 	return (
 		<div>
 			<div className="pt-8">
-				<label htmlFor="title">제목</label>
+				<label htmlFor="title" className="pl-3">제목</label>
 				<input
 					id={"title"}
-					className="border my-2 mx-4 bg-neutral-200 rounded-lg"
+					className="border my-2 mx-4 h-[2rem] rounded-lg w-1/2"
 					value={title}
 				  onChange={(e)=>setTitle(e.target.value)}
 				/>
 
 				<MDEditor
+					height={screen.height/2}
 					value={value}
 					commands={ [...getCommands()] }
 					extraCommands={ [...getExtraCommands()]}
 					style={{
+						marginRight:"30px",
+						marginLeft:"30px",
+						marginTop:"10px",
 						fontSize:"20px",
 						backgroundColor:"rgb(255,255,255)",
 						borderRadius: "20px",
@@ -41,13 +45,15 @@ const Page = () => {
 					}}
 					onChange={(value, event, state)=> setValue(event?.target.value)}
 				/>
-				<button
-					className="
+				<div className="flex justify-end">
+					<button
+						className="
 						mx-4 my-2 bg-neutral-200 w-20 h-8 text-gray-950 rounded-lg
 						hover:bg-rose-500 hover:text-white active:scale-95
 					"
-					onClick={savePost}
-				>저장</button>
+						onClick={savePost}
+					>저장</button>
+				</div>
 			</div>
 
 		</div>
